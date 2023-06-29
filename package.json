@@ -1,0 +1,8 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ramoncunha/nginx-fullcycle-docker.git",
+  "author": "Ramon Cunha <ramon.network@hotmail.com>",
+  "license": "MIT"
+}
