@@ -4,6 +4,7 @@ services:
   app:
     image: ramoncunha/nodejs-fullcycle
     container_name: nodejs
+    entrypoint: dockerize --wait tcp://mysql:3306 --timeout 10s docker-entrypoint.sh
     networks:
       - proxy-net
     tty: true
