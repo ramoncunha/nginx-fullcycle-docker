@@ -12,4 +12,6 @@ CREATE TABLE people (
   PRIMARY KEY (id)
 );
 
-INSERT INTO people VALUES(1, 'Ramon');
+INSERT INTO people VALUES(1, 'Jesus');
+INSERT INTO people VALUES(2, 'Ramon');
+INSERT INTO people VALUES(3, 'William');

@@ -8,14 +8,30 @@ const config = {
     database: 'nodedb'
 };
 const mysql = require('mysql2')
-const connection = mysql.createConnection(config)
 
-const sql = `INSERT INTO people(name) values ('Wesley')`
-connection.query(sql)
-connection.end()
+const createConnection = () => {
+    return mysql.createConnection(config);
+}
+
+const selectPeople = (dbConnection, requestCallback) => {
+    dbConnection.query('SELECT * FROM people;', requestCallback)
+}
+
+const makeHTMLFromNameList = (nameList = []) => {
+    return `<ul>${nameList.reduce((accumulator, currentValue) => accumulator + `<li><h3>${currentValue.name}</h3></li>`, '')}</ul>`
+}
 
 app.get('/', (req, res) => {
-    res.send('<h1>Full Cycle</h1>')
+    const dbConnection = createConnection()
+    
+    selectPeople(dbConnection, (error, results, fields) => {
+        if (error) throw error;
+        dbConnection.end();
+        res.send(`
+            <h1>Full Cycle Rocks!</h1>
+            ${makeHTMLFromNameList(results)}
+        `)
+    })
 })
 
 app.listen(port, () => {
