@@ -4,12 +4,12 @@ services:
   app:
     image: ramoncunha/nodejs-fullcycle
     container_name: nodejs
-    entrypoint: dockerize --wait tcp://mysql:3306 --timeout 10s docker-entrypoint.sh
+    entrypoint: dockerize --wait tcp://mysql:3306 --timeout 60s docker-entrypoint.sh
     networks:
       - proxy-net
     tty: true
     ports:
-      - "3000:3000"
+      - 3000
 
   nginx:
     image: ramoncunha/nginx-fullcycle

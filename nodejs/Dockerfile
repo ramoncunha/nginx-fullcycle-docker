@@ -1,6 +1,6 @@
 FROM node:20
 
-WORKDIR /usr/src/app
+WORKDIR /var/www
 COPY . .
 
 RUN npm install mysql --save
