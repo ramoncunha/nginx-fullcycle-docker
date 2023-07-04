@@ -3,7 +3,7 @@ FROM node:20
 WORKDIR /var/www
 COPY . .
 
-RUN npm install mysql --save
+RUN npm install mysql2 --save
 
 RUN apt-get update && apt-get install -y wget
 ENV DOCKERIZE_VERSION v0.7.0
@@ -13,4 +13,4 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 
 EXPOSE 3000
 
-CMD ["node", "index.js"]
+ENTRYPOINT ["node", "index.js"]

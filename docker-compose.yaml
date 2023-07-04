@@ -8,8 +8,9 @@ services:
     networks:
       - proxy-net
     tty: true
+    command: node index.js
     ports:
-      - 3000
+      - "3000:3000"
 
   nginx:
     image: ramoncunha/nginx-fullcycle
