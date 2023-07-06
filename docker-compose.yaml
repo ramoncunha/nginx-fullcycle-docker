@@ -9,7 +9,11 @@ services:
     networks:
       - proxy-net
     tty: true
-    command: node index.js
+    volumes:
+      - ./nodejs:/var/www
+    command: bash -c "npm install && node index.js"
+    depends_on:
+      - db
 
   nginx:
     build:
@@ -19,6 +23,8 @@ services:
       - proxy-net
     ports:
       - "8080:80"
+    depends_on:
+      - app
 
   db:
     build:
