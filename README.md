@@ -3,11 +3,13 @@ NGINX as reverse proxying with NodeJS with MySQL
 
 ## Como usar
 
-1. Digite no Terminal/CMD/PowerShell
+1. Digite no Terminal/CMD
 
-`docker compose up`
+`docker compose up -d`
 
-2. Aprecie!
+2. Acesse http://localhost:8080
+
+3. Aprecie!
 
 ## URL das imagens
 
